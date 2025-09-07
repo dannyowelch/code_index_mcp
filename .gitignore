@@ -1,3 +1,6 @@
+# Claude Code local files
+.claude/settings.local.json
+
 # Rust build artifacts
 /target/
 **/*.rs.bk
