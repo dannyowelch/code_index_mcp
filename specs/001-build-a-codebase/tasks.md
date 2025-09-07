@@ -74,9 +74,9 @@ Single project structure at repository root:
 
 ## Phase 3.4: Core Library Implementation
 ### Storage Library
-- [ ] T024 [P] SQLite schema migrations in src/lib/storage/schema.rs
-- [ ] T025 [P] Database connection and configuration in src/lib/storage/connection.rs
-- [ ] T026 [P] CRUD operations for all models in src/lib/storage/repository.rs
+- [x] T024 [P] SQLite schema migrations in src/lib/storage/schema.rs
+- [x] T025 [P] Database connection and configuration in src/lib/storage/connection.rs
+- [x] T026 [P] CRUD operations for all models in src/lib/storage/repository.rs
 
 ### C++ Indexer Library  
 - [ ] T027 [P] Tree-sitter C++ parser integration in src/lib/cpp_indexer/tree_sitter_parser.rs
