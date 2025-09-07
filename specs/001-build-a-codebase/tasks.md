@@ -58,12 +58,12 @@ Single project structure at repository root:
 - [x] T012 [P] Contract test update_file tool in tests/contract/test_update_file.rs
 
 ### Integration Tests (Quickstart Scenarios)
-- [ ] T013 [P] Integration test system installation & setup in tests/integration/test_installation.rs
-- [ ] T014 [P] Integration test sample index creation in tests/integration/test_sample_indexing.rs
-- [ ] T015 [P] Integration test menu interface validation in tests/integration/test_menu_interface.rs
-- [ ] T016 [P] Integration test MCP protocol integration in tests/integration/test_mcp_protocol.rs
-- [ ] T017 [P] Integration test incremental update functionality in tests/integration/test_incremental_update.rs
-- [ ] T018 [P] Integration test performance validation in tests/integration/test_performance.rs
+- [x] T013 [P] Integration test system installation & setup in tests/integration/test_installation.rs
+- [x] T014 [P] Integration test sample index creation in tests/integration/test_sample_indexing.rs
+- [x] T015 [P] Integration test menu interface validation in tests/integration/test_menu_interface.rs
+- [x] T016 [P] Integration test MCP protocol integration in tests/integration/test_mcp_protocol.rs
+- [x] T017 [P] Integration test incremental update functionality in tests/integration/test_incremental_update.rs
+- [x] T018 [P] Integration test performance validation in tests/integration/test_performance.rs
 
 ## Phase 3.3: Data Models (ONLY after tests are failing)
 - [ ] T019 [P] Code Index model in src/lib/storage/models/code_index.rs
