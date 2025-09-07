@@ -66,11 +66,11 @@ Single project structure at repository root:
 - [x] T018 [P] Integration test performance validation in tests/integration/test_performance.rs
 
 ## Phase 3.3: Data Models (ONLY after tests are failing)
-- [ ] T019 [P] Code Index model in src/lib/storage/models/code_index.rs
-- [ ] T020 [P] Code Element model in src/lib/storage/models/code_element.rs
-- [ ] T021 [P] File Metadata model in src/lib/storage/models/file_metadata.rs
-- [ ] T022 [P] Symbol Relationships model in src/lib/storage/models/symbol_relationships.rs
-- [ ] T023 [P] MCP Query Session model in src/lib/storage/models/mcp_query_session.rs
+- [x] T019 [P] Code Index model in src/lib/storage/models/code_index.rs
+- [x] T020 [P] Code Element model in src/lib/storage/models/code_element.rs
+- [x] T021 [P] File Metadata model in src/lib/storage/models/file_metadata.rs
+- [x] T022 [P] Symbol Relationships model in src/lib/storage/models/symbol_relationships.rs
+- [x] T023 [P] MCP Query Session model in src/lib/storage/models/mcp_query_session.rs
 
 ## Phase 3.4: Core Library Implementation
 ### Storage Library

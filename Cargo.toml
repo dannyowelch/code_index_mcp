@@ -41,6 +41,9 @@ sha2 = "0.10"
 # Date and time
 chrono = { version = "0.4", features = ["serde"] }
 
+# UUID generation
+uuid = { version = "1.0", features = ["v4", "serde"] }
+
 # System utilities
 num_cpus = "1.0"
 

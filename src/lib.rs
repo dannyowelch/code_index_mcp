@@ -5,6 +5,14 @@
 
 pub mod config;
 
+// Library modules
+pub mod lib {
+    pub mod storage;
+    pub mod cpp_indexer;
+    pub mod mcp_server;
+    pub mod cli_interface;
+}
+
 // Re-export main modules for easy access
 pub use config::Config;
 

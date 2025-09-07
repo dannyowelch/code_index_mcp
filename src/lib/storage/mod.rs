@@ -4,6 +4,7 @@
 // including code indices, symbols, relationships, and query sessions.
 
 pub mod models;
-pub mod schema;
-pub mod connection;
-pub mod repository;
+// TODO: Implement these modules in later tasks
+// pub mod schema;
+// pub mod connection; 
+// pub mod repository;
