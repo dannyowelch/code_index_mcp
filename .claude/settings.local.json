@@ -6,7 +6,9 @@
       "WebSearch",
       "Bash(scripts/update-agent-context.sh:*)",
       "Bash(scripts/check-task-prerequisites.sh:*)",
-      "Bash(cargo check:*)"
+      "Bash(cargo check:*)",
+      "Bash(export LIBCLANG_PATH=\"/c/Program Files/LLVM/bin\")",
+      "Bash(cargo test)"
     ],
     "deny": [],
     "ask": []
