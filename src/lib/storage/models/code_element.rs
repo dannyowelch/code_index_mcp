@@ -31,7 +31,7 @@ pub struct CodeElement {
 }
 
 /// Type of C++ symbol
-#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq, Hash)]
 pub enum SymbolType {
     Function,
     Class,
@@ -46,6 +46,9 @@ pub enum SymbolType {
     Constructor,
     Destructor,
     Operator,
+    Field,
+    EnumConstant,
+    Unknown,
 }
 
 /// C++ access modifier
@@ -191,6 +194,9 @@ impl SymbolType {
             SymbolType::Constructor,
             SymbolType::Destructor,
             SymbolType::Operator,
+            SymbolType::Field,
+            SymbolType::EnumConstant,
+            SymbolType::Unknown,
         ]
     }
 
@@ -210,6 +216,9 @@ impl SymbolType {
             SymbolType::Constructor => "constructor",
             SymbolType::Destructor => "destructor",
             SymbolType::Operator => "operator",
+            SymbolType::Field => "field",
+            SymbolType::EnumConstant => "enum_constant",
+            SymbolType::Unknown => "unknown",
         }
     }
 }

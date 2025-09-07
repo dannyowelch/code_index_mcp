@@ -79,10 +79,10 @@ Single project structure at repository root:
 - [x] T026 [P] CRUD operations for all models in src/lib/storage/repository.rs
 
 ### C++ Indexer Library  
-- [ ] T027 [P] Tree-sitter C++ parser integration in src/lib/cpp_indexer/tree_sitter_parser.rs
-- [ ] T028 [P] LibClang semantic analysis integration in src/lib/cpp_indexer/clang_parser.rs
-- [ ] T029 [P] Symbol extraction and processing in src/lib/cpp_indexer/symbol_extractor.rs
-- [ ] T030 [P] Incremental indexing with Merkle tree in src/lib/cpp_indexer/incremental.rs
+- [x] T027 [P] Tree-sitter C++ parser integration in src/lib/cpp_indexer/tree_sitter_parser.rs
+- [x] T028 [P] LibClang semantic analysis integration in src/lib/cpp_indexer/clang_parser.rs
+- [x] T029 [P] Symbol extraction and processing in src/lib/cpp_indexer/symbol_extractor.rs
+- [x] T030 [P] Incremental indexing with Merkle tree in src/lib/cpp_indexer/incremental.rs
 
 ### MCP Server Library
 - [ ] T031 [P] MCP protocol server implementation in src/lib/mcp_server/server.rs

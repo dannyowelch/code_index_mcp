@@ -46,6 +46,7 @@ uuid = { version = "1.0", features = ["v4", "serde"] }
 
 # System utilities
 num_cpus = "1.0"
+clang = "2.0.0"
 
 # MCP SDK (placeholder - will need actual crate when available)
 # mcp-rust-sdk = { git = "https://github.com/modelcontextprotocol/rust-sdk" }
