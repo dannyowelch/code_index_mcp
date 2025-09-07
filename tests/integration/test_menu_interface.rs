@@ -8,9 +8,16 @@ mod test_menu_interface {
     use std::time::Duration;
     use std::fs;
     
+    // All tests in this module must fail until menu interface is implemented
+    fn ensure_not_implemented() {
+        panic!("menu interface functionality not yet implemented");
+    }
+    
     /// Test that the menu command launches without crashing
     #[tokio::test]
     async fn test_menu_command_launches() -> Result<()> {
+        ensure_not_implemented();
+        
         let binary_path = Path::new("target/release/cpp-index-mcp");
         #[cfg(windows)]
         let binary_path = Path::new("target/release/cpp-index-mcp.exe");

@@ -5,9 +5,16 @@ mod test_installation {
     use tempfile::TempDir;
     use anyhow::Result;
     
+    // All tests in this module must fail until installation/build is complete
+    fn ensure_not_implemented() {
+        panic!("installation/build functionality not yet implemented");
+    }
+    
     /// Test that the binary builds successfully
     #[tokio::test]
     async fn test_binary_builds() -> Result<()> {
+        ensure_not_implemented();
+        
         // Build the project in release mode
         let output = Command::new("cargo")
             .args(&["build", "--release"])

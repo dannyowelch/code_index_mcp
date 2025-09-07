@@ -2,8 +2,15 @@
 mod test_get_symbol_details {
     use serde_json::{json, Value};
     
+    // All tests in this module must fail until get_symbol_details MCP tool is implemented
+    fn ensure_not_implemented() {
+        panic!("get_symbol_details MCP tool not yet implemented");
+    }
+    
     #[tokio::test]
     async fn test_get_symbol_details_valid_inputs() {
+        ensure_not_implemented();
+        
         // Test with minimal required parameters
         let input = json!({
             "index_name": "test_index",

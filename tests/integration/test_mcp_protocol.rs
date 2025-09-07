@@ -9,9 +9,16 @@ mod test_mcp_protocol {
     use std::time::Duration;
     use std::fs;
     
+    // All tests in this module must fail until MCP protocol is implemented
+    fn ensure_not_implemented() {
+        panic!("MCP protocol functionality not yet implemented");
+    }
+    
     /// Test that MCP server starts and responds to basic protocol messages
     #[tokio::test]
     async fn test_mcp_server_startup() -> Result<()> {
+        ensure_not_implemented();
+        
         let binary_path = Path::new("target/release/cpp-index-mcp");
         #[cfg(windows)]
         let binary_path = Path::new("target/release/cpp-index-mcp.exe");

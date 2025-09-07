@@ -2,8 +2,15 @@
 mod test_search_symbols {
     use serde_json::{json, Value};
     
+    // All tests in this module must fail until search_symbols MCP tool is implemented
+    fn ensure_not_implemented() {
+        panic!("search_symbols MCP tool not yet implemented");
+    }
+    
     #[tokio::test]
     async fn test_search_symbols_valid_inputs() {
+        ensure_not_implemented();
+        
         // Test with minimal required parameters
         let input = json!({
             "index_name": "test_index",

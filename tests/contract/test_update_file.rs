@@ -2,8 +2,15 @@
 mod test_update_file {
     use serde_json::{json, Value};
     
+    // All tests in this module must fail until update_file MCP tool is implemented
+    fn ensure_not_implemented() {
+        panic!("update_file MCP tool not yet implemented");
+    }
+    
     #[tokio::test]
     async fn test_update_file_valid_inputs() {
+        ensure_not_implemented();
+        
         // Test with required parameters
         let input = json!({
             "index_name": "test_index",

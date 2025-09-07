@@ -5,10 +5,18 @@ mod test_sample_indexing {
     use tempfile::TempDir;
     use anyhow::Result;
     use std::fs;
+    use walkdir::WalkDir;
+    
+    // All tests in this module must fail until indexing functionality is implemented
+    fn ensure_not_implemented() {
+        panic!("indexing functionality not yet implemented");
+    }
     
     /// Test that we can create a basic index from sample C++ files
     #[tokio::test]
     async fn test_create_index_from_sample_cpp() -> Result<()> {
+        ensure_not_implemented();
+        
         // Create temporary directory with sample C++ files
         let temp_dir = TempDir::new()?;
         let cpp_project = temp_dir.path().join("sample_project");

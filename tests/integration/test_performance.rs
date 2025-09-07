@@ -8,9 +8,16 @@ mod test_performance {
     use std::time::{Duration, Instant, SystemTime};
     use std::collections::HashMap;
     
+    // All tests in this module must fail until performance optimization is implemented
+    fn ensure_not_implemented() {
+        panic!("performance functionality not yet implemented");
+    }
+    
     /// Test indexing performance with large codebase (target: >10k files)
     #[tokio::test]
     async fn test_large_codebase_indexing_performance() -> Result<()> {
+        ensure_not_implemented();
+        
         let temp_dir = TempDir::new()?;
         let large_project = temp_dir.path().join("large_codebase");
         fs::create_dir_all(&large_project)?;
@@ -151,7 +158,7 @@ void Module{}::new_method_{}() {{
     // New method added during incremental update
     std::cout << "New method in Module{}" << std::endl;
 }}
-"#, i, i, i, i, i * 100, i, i, i, i, i, i, i, i, i);
+"#, i, i, i, i, i * 100, i, i, i, i, i, i, i, i);
             
             fs::write(&source_path, modified_content)?;
         }
@@ -627,7 +634,7 @@ int SearchableClass{:03}::s_instance_count_{} = 0;
 SearchableClass{:03}::SearchableClass{:03}() 
     : m_data_{}({}), 
       m_name_{}("SearchableClass{:03}"), 
-      m_values_{} {{
+      m_values_{}() {{
     ++s_instance_count_{};
 }}
 
@@ -636,8 +643,8 @@ SearchableClass{:03}::~SearchableClass{:03}() {{
 }}
 
 "#, class_idx, class_idx, class_idx, class_idx, class_idx, 
-   class_idx, class_idx, class_idx, class_idx, 
-   class_idx, class_idx, class_idx, class_idx);
+   class_idx, class_idx * 100, class_idx, class_idx, 
+   class_idx, class_idx, class_idx, class_idx, class_idx);
         
         for method_idx in 0..methods_per_class {
             content.push_str(&format!(r#"

@@ -2,8 +2,15 @@
 mod test_delete_index {
     use serde_json::{json, Value};
     
+    // All tests in this module must fail until delete_index MCP tool is implemented
+    fn ensure_not_implemented() {
+        panic!("delete_index MCP tool not yet implemented");
+    }
+    
     #[tokio::test]
     async fn test_delete_index_valid_inputs() {
+        ensure_not_implemented();
+        
         // Test with required parameters
         let input = json!({
             "index_name": "test_index",
@@ -13,6 +20,9 @@ mod test_delete_index {
         assert!(input["index_name"].is_string());
         assert!(input["confirm"].is_boolean());
         assert_eq!(input["confirm"].as_bool().unwrap(), true);
+        
+        // This test must fail until delete_index MCP tool is implemented
+        panic!("delete_index MCP tool not yet implemented");
     }
     
     #[tokio::test]

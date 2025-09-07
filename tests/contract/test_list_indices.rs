@@ -2,8 +2,15 @@
 mod test_list_indices {
     use serde_json::{json, Value};
     
+    // All tests in this module must fail until list_indices MCP tool is implemented
+    fn ensure_not_implemented() {
+        panic!("list_indices MCP tool not yet implemented");
+    }
+    
     #[tokio::test]
     async fn test_list_indices_valid_inputs() {
+        ensure_not_implemented();
+        
         // Test with no parameters (all optional)
         let input = json!({});
         

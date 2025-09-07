@@ -1,5 +1,9 @@
 use cpp_index_mcp::Config;
 
+// Include contract and integration test modules
+mod contract;
+mod integration;
+
 #[test]
 fn test_config_default() {
     let config = Config::default();

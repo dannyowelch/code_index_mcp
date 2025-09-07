@@ -8,9 +8,16 @@ mod test_incremental_update {
     use std::time::{Duration, SystemTime};
     use sha2::{Sha256, Digest};
     
+    // All tests in this module must fail until incremental update functionality is implemented
+    fn ensure_not_implemented() {
+        panic!("incremental update functionality not yet implemented");
+    }
+    
     /// Test that incremental indexing detects file changes
     #[tokio::test]
     async fn test_incremental_file_change_detection() -> Result<()> {
+        ensure_not_implemented();
+        
         let temp_dir = TempDir::new()?;
         let project_path = temp_dir.path().join("incremental_test");
         fs::create_dir_all(&project_path)?;
@@ -342,9 +349,10 @@ int main() {
         let dependencies = create_dependency_graph(&project_path)?;
         
         // base.h should be a dependency of derived.h
-        let base_deps = dependencies.get(&base_header).unwrap_or(&Vec::new());
-        let derived_deps = dependencies.get(&derived_header).unwrap_or(&Vec::new());
-        let main_deps = dependencies.get(&main_cpp).unwrap_or(&Vec::new());
+        let empty_vec = Vec::new();
+        let _base_deps = dependencies.get(&base_header).unwrap_or(&empty_vec);
+        let derived_deps = dependencies.get(&derived_header).unwrap_or(&empty_vec);
+        let main_deps = dependencies.get(&main_cpp).unwrap_or(&empty_vec);
         
         // Verify dependency relationships
         assert!(derived_deps.contains(&base_header), "derived.h should depend on base.h");
