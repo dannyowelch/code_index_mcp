@@ -48,14 +48,14 @@ Single project structure at repository root:
 **CRITICAL: These tests MUST be written and MUST FAIL before ANY implementation**
 
 ### Contract Tests (MCP Tools)
-- [ ] T005 [P] Contract test index_codebase tool in tests/contract/test_index_codebase.rs
-- [ ] T006 [P] Contract test search_symbols tool in tests/contract/test_search_symbols.rs  
-- [ ] T007 [P] Contract test get_symbol_details tool in tests/contract/test_symbol_details.rs
-- [ ] T008 [P] Contract test find_references tool in tests/contract/test_find_references.rs
-- [ ] T009 [P] Contract test list_indices tool in tests/contract/test_list_indices.rs
-- [ ] T010 [P] Contract test delete_index tool in tests/contract/test_delete_index.rs
-- [ ] T011 [P] Contract test get_file_symbols tool in tests/contract/test_file_symbols.rs
-- [ ] T012 [P] Contract test update_file tool in tests/contract/test_update_file.rs
+- [x] T005 [P] Contract test index_codebase tool in tests/contract/test_index_codebase.rs
+- [x] T006 [P] Contract test search_symbols tool in tests/contract/test_search_symbols.rs  
+- [x] T007 [P] Contract test get_symbol_details tool in tests/contract/test_symbol_details.rs
+- [x] T008 [P] Contract test find_references tool in tests/contract/test_find_references.rs
+- [x] T009 [P] Contract test list_indices tool in tests/contract/test_list_indices.rs
+- [x] T010 [P] Contract test delete_index tool in tests/contract/test_delete_index.rs
+- [x] T011 [P] Contract test get_file_symbols tool in tests/contract/test_file_symbols.rs
+- [x] T012 [P] Contract test update_file tool in tests/contract/test_update_file.rs
 
 ### Integration Tests (Quickstart Scenarios)
 - [ ] T013 [P] Integration test system installation & setup in tests/integration/test_installation.rs
