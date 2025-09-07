@@ -1,0 +1,210 @@
+{
+  "tools": [
+    {
+      "name": "index_codebase",
+      "description": "Create or update an index for a C++ codebase",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Human-readable name for the index"
+          },
+          "base_path": {
+            "type": "string",
+            "description": "Absolute path to the codebase root directory"
+          },
+          "incremental": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether to perform incremental update of existing index"
+          },
+          "file_patterns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": ["**/*.cpp", "**/*.h", "**/*.hpp", "**/*.cc", "**/*.cxx"],
+            "description": "Glob patterns for files to index"
+          },
+          "exclude_patterns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": ["**/build/**", "**/target/**", "**/.git/**"],
+            "description": "Glob patterns for files to exclude"
+          }
+        },
+        "required": ["name", "base_path"]
+      }
+    },
+    {
+      "name": "search_symbols",
+      "description": "Search for code symbols by name, type, or file",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "index_name": {
+            "type": "string",
+            "description": "Name of the index to search"
+          },
+          "query": {
+            "type": "string",
+            "description": "Symbol name or pattern to search for"
+          },
+          "symbol_type": {
+            "type": "string",
+            "enum": ["function", "class", "variable", "macro", "namespace", "enum", "typedef"],
+            "description": "Filter by symbol type"
+          },
+          "file_path": {
+            "type": "string",
+            "description": "Filter by file path (supports glob patterns)"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Filter by scope/namespace"
+          },
+          "exact_match": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether to perform exact name matching"
+          },
+          "limit": {
+            "type": "integer",
+            "default": 100,
+            "minimum": 1,
+            "maximum": 1000,
+            "description": "Maximum number of results to return"
+          }
+        },
+        "required": ["index_name", "query"]
+      }
+    },
+    {
+      "name": "get_symbol_details",
+      "description": "Get detailed information about a specific symbol",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "index_name": {
+            "type": "string",
+            "description": "Name of the index"
+          },
+          "symbol_id": {
+            "type": "integer",
+            "description": "Unique ID of the symbol"
+          },
+          "include_relationships": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether to include symbol relationships"
+          }
+        },
+        "required": ["index_name", "symbol_id"]
+      }
+    },
+    {
+      "name": "find_references",
+      "description": "Find all references to a symbol",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "index_name": {
+            "type": "string",
+            "description": "Name of the index"
+          },
+          "symbol_name": {
+            "type": "string",
+            "description": "Name of the symbol to find references for"
+          },
+          "symbol_type": {
+            "type": "string",
+            "enum": ["function", "class", "variable", "macro", "namespace", "enum", "typedef"],
+            "description": "Type of the symbol"
+          },
+          "include_declarations": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether to include declarations in results"
+          }
+        },
+        "required": ["index_name", "symbol_name"]
+      }
+    },
+    {
+      "name": "list_indices",
+      "description": "List all available code indices",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "include_stats": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether to include file and symbol counts"
+          }
+        }
+      }
+    },
+    {
+      "name": "delete_index",
+      "description": "Delete a code index and all associated data",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "index_name": {
+            "type": "string",
+            "description": "Name of the index to delete"
+          },
+          "confirm": {
+            "type": "boolean",
+            "description": "Confirmation flag to prevent accidental deletion"
+          }
+        },
+        "required": ["index_name", "confirm"]
+      }
+    },
+    {
+      "name": "get_file_symbols",
+      "description": "Get all symbols defined in a specific file",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "index_name": {
+            "type": "string",
+            "description": "Name of the index"
+          },
+          "file_path": {
+            "type": "string",
+            "description": "Path to the file (relative to codebase root)"
+          },
+          "group_by_type": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether to group results by symbol type"
+          }
+        },
+        "required": ["index_name", "file_path"]
+      }
+    },
+    {
+      "name": "update_file",
+      "description": "Update index for a specific file after changes",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "index_name": {
+            "type": "string",
+            "description": "Name of the index"
+          },
+          "file_path": {
+            "type": "string",
+            "description": "Path to the modified file"
+          }
+        },
+        "required": ["index_name", "file_path"]
+      }
+    }
+  ]
+}

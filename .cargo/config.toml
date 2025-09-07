@@ -1,0 +1,17 @@
+[build]
+# Enable all clippy lints by default for strict code quality
+rustflags = [
+    "-D", "warnings",           # Deny all warnings
+    "-D", "clippy::all",        # Enable all clippy lints
+    "-D", "clippy::pedantic",   # Enable pedantic lints
+    "-D", "clippy::nursery",    # Enable experimental lints
+    "-A", "clippy::module_name_repetitions", # Allow module name repetitions
+    "-A", "clippy::missing_docs_in_private_items", # Allow missing docs in private items
+]
+
+[alias]
+# Convenience aliases for common commands
+check-all = "check --workspace --all-targets"
+test-all = "test --workspace --all-targets"
+clippy-all = "clippy --workspace --all-targets -- -D warnings"
+fmt-check = "fmt --all -- --check"

@@ -1,0 +1,266 @@
+{
+  "responses": {
+    "IndexResult": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "Whether the indexing operation succeeded"
+        },
+        "index_id": {
+          "type": "string",
+          "description": "Unique identifier for the created/updated index"
+        },
+        "files_processed": {
+          "type": "integer",
+          "description": "Number of files processed"
+        },
+        "symbols_found": {
+          "type": "integer",
+          "description": "Number of symbols indexed"
+        },
+        "duration_ms": {
+          "type": "integer",
+          "description": "Time taken for indexing in milliseconds"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "file_path": {"type": "string"},
+              "line_number": {"type": "integer"},
+              "message": {"type": "string"}
+            }
+          },
+          "description": "List of parsing errors encountered"
+        }
+      },
+      "required": ["success", "files_processed", "symbols_found", "duration_ms"]
+    },
+    "SearchResult": {
+      "type": "object",
+      "properties": {
+        "symbols": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Symbol"
+          }
+        },
+        "total_count": {
+          "type": "integer",
+          "description": "Total number of matching symbols"
+        },
+        "query_time_ms": {
+          "type": "integer",
+          "description": "Time taken for search in milliseconds"
+        }
+      },
+      "required": ["symbols", "total_count", "query_time_ms"]
+    },
+    "Symbol": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier for the symbol"
+        },
+        "name": {
+          "type": "string",
+          "description": "Symbol name"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["function", "class", "variable", "macro", "namespace", "enum", "typedef"]
+        },
+        "file_path": {
+          "type": "string",
+          "description": "File path relative to codebase root"
+        },
+        "line_number": {
+          "type": "integer",
+          "description": "Line number in file (1-based)"
+        },
+        "column_number": {
+          "type": "integer",
+          "description": "Column number in file (1-based)"
+        },
+        "scope": {
+          "type": "string",
+          "description": "Fully qualified scope (e.g., 'MyNamespace::MyClass')"
+        },
+        "signature": {
+          "type": "string",
+          "description": "Function signature or variable type"
+        },
+        "access_modifier": {
+          "type": "string",
+          "enum": ["public", "private", "protected"],
+          "description": "Access modifier for class members"
+        },
+        "is_declaration": {
+          "type": "boolean",
+          "description": "True if this is a declaration, false if definition"
+        }
+      },
+      "required": ["id", "name", "type", "file_path", "line_number", "column_number"]
+    },
+    "SymbolDetails": {
+      "allOf": [
+        {"$ref": "#/definitions/Symbol"},
+        {
+          "type": "object",
+          "properties": {
+            "relationships": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SymbolRelationship"
+              }
+            },
+            "documentation": {
+              "type": "string",
+              "description": "Extracted documentation/comments"
+            },
+            "definition_hash": {
+              "type": "string",
+              "description": "Hash of the symbol definition for change tracking"
+            }
+          }
+        }
+      ]
+    },
+    "SymbolRelationship": {
+      "type": "object",
+      "properties": {
+        "target_symbol_id": {
+          "type": "integer",
+          "description": "ID of the related symbol"
+        },
+        "target_symbol_name": {
+          "type": "string",
+          "description": "Name of the related symbol"
+        },
+        "relationship_type": {
+          "type": "string",
+          "enum": ["inherits", "uses", "includes", "calls", "defines"]
+        },
+        "file_path": {
+          "type": "string",
+          "description": "File where the relationship is declared"
+        },
+        "line_number": {
+          "type": "integer",
+          "description": "Line number where relationship occurs"
+        }
+      },
+      "required": ["target_symbol_id", "target_symbol_name", "relationship_type"]
+    },
+    "IndexInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the index"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable name"
+        },
+        "base_path": {
+          "type": "string",
+          "description": "Root directory of the indexed codebase"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the index was created"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the index was last updated"
+        },
+        "total_files": {
+          "type": "integer",
+          "description": "Number of indexed files"
+        },
+        "total_symbols": {
+          "type": "integer",
+          "description": "Number of indexed symbols"
+        },
+        "index_version": {
+          "type": "string",
+          "description": "Schema version of the index"
+        }
+      },
+      "required": ["id", "name", "base_path", "created_at", "total_files", "total_symbols"]
+    },
+    "FileSymbols": {
+      "type": "object",
+      "properties": {
+        "file_path": {
+          "type": "string",
+          "description": "Path to the file"
+        },
+        "symbols": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Symbol"
+          }
+        },
+        "grouped_symbols": {
+          "type": "object",
+          "properties": {
+            "functions": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/Symbol"}
+            },
+            "classes": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/Symbol"}
+            },
+            "variables": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/Symbol"}
+            },
+            "macros": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/Symbol"}
+            },
+            "namespaces": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/Symbol"}
+            },
+            "enums": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/Symbol"}
+            },
+            "typedefs": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/Symbol"}
+            }
+          }
+        }
+      },
+      "required": ["file_path", "symbols"]
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string",
+          "description": "Error message"
+        },
+        "error_code": {
+          "type": "string",
+          "description": "Machine-readable error code"
+        },
+        "details": {
+          "type": "object",
+          "description": "Additional error context"
+        }
+      },
+      "required": ["error", "error_code"]
+    }
+  }
+}

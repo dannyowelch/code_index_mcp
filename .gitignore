@@ -1,0 +1,77 @@
+# Rust build artifacts
+/target/
+**/*.rs.bk
+*.pdb
+
+# Cargo lock file (include for applications, exclude for libraries)
+Cargo.lock
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Log files
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Generated documentation
+/target/doc/
+
+# Coverage reports
+tarpaulin-report.html
+lcov.info
+coverage/
+
+# Benchmark results
+criterion/
+
+# Performance profiles
+perf.data
+perf.data.old
+flamegraph.svg
+
+# C/C++ build artifacts (from LibClang integration)
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.a
+*.lib
+
+# Tree-sitter generated files
+**/grammar.js
+**/src/parser.c
+**/src/tree_sitter/
+
+# Test artifacts
+test-output/
+*.test

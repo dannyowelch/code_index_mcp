@@ -1,0 +1,40 @@
+{
+  "resources": [
+    {
+      "uri": "codebase://{index_name}/stats",
+      "name": "Index Statistics",
+      "description": "Statistics about the indexed codebase",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "codebase://{index_name}/files",
+      "name": "File List",
+      "description": "List of all indexed files in the codebase",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "codebase://{index_name}/files/{file_path}",
+      "name": "File Content",
+      "description": "Content and metadata for a specific file",
+      "mimeType": "text/plain"
+    },
+    {
+      "uri": "codebase://{index_name}/symbols/{symbol_id}",
+      "name": "Symbol Details",
+      "description": "Detailed information about a specific symbol",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "codebase://{index_name}/dependencies",
+      "name": "Dependency Graph",
+      "description": "Dependency relationships between files and symbols",
+      "mimeType": "application/json"
+    },
+    {
+      "uri": "codebase://{index_name}/namespaces",
+      "name": "Namespace Hierarchy",
+      "description": "Hierarchical view of all namespaces in the codebase",
+      "mimeType": "application/json"
+    }
+  ]
+}
