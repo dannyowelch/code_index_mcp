@@ -1,4 +1,3 @@
-#[cfg(test)]
 mod test_index_codebase {
     use std::path::Path;
     use serde_json::{json, Value};

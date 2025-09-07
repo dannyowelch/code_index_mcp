@@ -59,12 +59,14 @@ impl Default for Config {
 
 impl Config {
     /// Load configuration from file or create default
+    #[allow(dead_code)]
     pub fn load() -> Result<Self> {
         // TODO: Implement configuration loading from file
         Ok(Self::default())
     }
     
     /// Save configuration to file
+    #[allow(dead_code)]
     pub fn save(&self) -> Result<()> {
         // TODO: Implement configuration saving
         Ok(())
