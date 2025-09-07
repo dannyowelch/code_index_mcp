@@ -85,10 +85,10 @@ Single project structure at repository root:
 - [x] T030 [P] Incremental indexing with Merkle tree in src/lib/cpp_indexer/incremental.rs
 
 ### MCP Server Library
-- [ ] T031 [P] MCP protocol server implementation in src/lib/mcp_server/server.rs
-- [ ] T032 [P] Tool handlers for all 8 MCP tools in src/lib/mcp_server/tool_handlers.rs
-- [ ] T033 [P] Resource handlers for MCP resources in src/lib/mcp_server/resource_handlers.rs
-- [ ] T034 [P] STDIO transport and message routing in src/lib/mcp_server/transport.rs
+- [x] T031 [P] MCP protocol server implementation in src/lib/mcp_server/server.rs
+- [x] T032 [P] Tool handlers for all 8 MCP tools in src/lib/mcp_server/tool_handlers.rs
+- [x] T033 [P] Resource handlers for MCP resources in src/lib/mcp_server/resource_handlers.rs
+- [x] T034 [P] STDIO transport and message routing in src/lib/mcp_server/transport.rs
 
 ### CLI Interface Library
 - [ ] T035 [P] Interactive menu system in src/lib/cli_interface/menu.rs
